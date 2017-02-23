@@ -22,17 +22,18 @@
           </tr>
         </thead>
         <tbody>
-          <% @expenses.each do |expense| %>
-            <tr>
-              <td class="date">
-                <div class="day"><%= l(expense.date, format: "%d") %></div>
-                <div class="month"><%= l(expense.date, format: "%b") %></div>
-              </td>
-              <td class="concept"><%= expense.concept %></td>
-              <td class="category text-right"><%= expense.category.name %></td>
-              <td class="text-right amount" style="width: 170px;"><%= number_to_currency(expense.amount, precision: 0) %></td>
-            </tr>
-          <% end %>
+
+            <% @expenses.each do |expense| %>
+              <tr>
+                <td class="date">
+                  <div class="day"><%= l(expense.date, format: "%d") %></div>
+                  <div class="month"><%= l(expense.date, format: "%b") %></div>
+                </td>
+                <td class="concept"><%= expense.concept %></td>
+                <td class="category text-right"><%= expense.category.name %></td>
+                <td class="text-right amount" style="width: 170px;"><%= number_to_currency(expense.amount, precision: 0) %></td>
+              </tr>
+            <% end %>
         </tbody>
       </table>
     </div>
