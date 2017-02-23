@@ -1,8 +1,8 @@
 class ExpensesController < ApplicationController
   def index
-    my_where_params = params.permit(:concept, :category_id).select {|k,v| v.present?}
-    expenses = Expense.where(my_where_params)
-    @expenses = expenses.order("date DESC")
+    @expenses = Expense.order('date DESC')
+   	@expenses =  @expenses.concept(params[:concept]) if params[:concept].present?
+   	@expenses= @expenses.category_id(params[:category_id]) if params[:category_id].present?
   end
 end
 
